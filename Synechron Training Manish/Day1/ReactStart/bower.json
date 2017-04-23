@@ -1,0 +1,23 @@
+{
+  "name": "day1",
+  "description": "React Demos",
+  "main": "",
+  "authors": [
+    "Manish"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/scripts",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.4.2",
+    "babel": "^5.8.38"
+  }
+}

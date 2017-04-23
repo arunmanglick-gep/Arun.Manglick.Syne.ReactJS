@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .check {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+    </div>
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script>
+        // var h1 = React.DOM.h1({
+        //     "id": "hOne"
+        // }, "Hello World");
+        // ReactDOM.render(h1, document.getElementById("container"));
+
+        // var h1 = React.createElement("h1", {
+        //     "id": "hOne"
+        // }, "Hello World");
+        // ReactDOM.render(h1, document.getElementById("container"));
+
+        var p = React.createElement("p", {
+            "id": "p1",
+            "className": "check"
+        }, "This is a paragraph.");
+        console.log(p);
+        ReactDOM.render(p, document.getElementById("container"));
+
+        var ul = React.createElement("ul", {
+            "id": "ul1"
+        }, React.createElement("li", {
+            "id": "li1"
+        }, React.createElement("p", {
+            "id": "p1",
+            "className": "check"
+        }, "This is para inside LI.")));
+        ReactDOM.render(ul, document.getElementById("container"));
+
+    </script>
+</body>
+
+</html>

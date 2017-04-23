@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container">
+    </div>
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script>
+        class HelloES6 extends React.Component {
+            render(){
+                 return React.createElement("h1", {
+                    "id": "hOne"
+                }, "Hello World using ES6 (JS Format) (Does Not Require babel/browser.js)");
+            }
+        }
+
+        ReactDOM.render(React.createElement(HelloES6), document.getElementById("container"));
+    </script>
+</body>
+
+</html>

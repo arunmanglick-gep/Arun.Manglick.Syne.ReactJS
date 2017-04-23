@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container">
+    </div>
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script>
+         var HelloES5 = React.createClass({
+            render(){
+                 return React.createElement("h1", {
+                    "id": "hOne"
+                }, "Hello World using ES5 (JS Format) (Does Not Require babel/browser.js)");
+            }
+        });
+        
+        ReactDOM.render(React.createElement(HelloES5), document.getElementById("container"));
+    </script>
+</body>
+
+</html>
