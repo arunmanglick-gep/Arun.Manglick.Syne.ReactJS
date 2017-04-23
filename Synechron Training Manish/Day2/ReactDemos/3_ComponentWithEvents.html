@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .check{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container1"></div>
+        
+        <script src="./public/scripts/react/react.js"></script>
+        <script src="./public/scripts/react/react-dom.js"></script>
+        <script src="./public/scripts/babel/browser.js"></script>
+        <script type="text/babel">
+            class Button extends React.Component{
+                handleClick(){
+                    alert("Hello There!");
+                }
+
+                render(){
+                    return <button onClick={this.handleClick}>{this.props.content}</button>;
+                }
+            }
+
+            ReactDOM.render(<Button content="Click Me!"/>, document.getElementById("container1"));
+        </script>
+    </body>
+</html>

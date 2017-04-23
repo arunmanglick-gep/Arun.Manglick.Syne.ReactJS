@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .check{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container1"></div>
+        
+        <script src="./public/scripts/react/react.js"></script>
+        <script src="./public/scripts/react/react-dom.js"></script>
+        <script src="./public/scripts/babel/browser.js"></script>
+        <script type="text/babel">
+
+            class Control extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {count:5};
+                }
+                getCount()
+                {                    
+                    return this.state.count;
+                }
+            }    
+            // -----------------------------------------------------------
+            class Label extends Control{
+                 constructor(props){
+                    super(props);
+                }
+                
+                render(){
+                    return <p>{this.props.content} : {super.getCount()}</p>;
+                }
+            }           
+            // -----------------------------------------------------------
+            class Button1 extends Control{   
+                 constructor(props){
+                    super(props);
+                }
+                
+                handleClick(){                    
+                    this.setState({count: super.getCount()+5});
+                }
+                render(){
+                    return <button onClick={this.handleClick.bind(this)}>{this.props.content} - {super.getCount()}</button>;
+                }
+            }
+
+            // -----------------------------------------------------------
+            class Button2 extends Control{   
+                 constructor(props){
+                    super(props);
+                }
+                
+                handleClick(){                    
+                    this.setState({count: super.getCount()+10});
+                }
+                render(){
+                    return <button onClick={this.handleClick.bind(this)}>{this.props.content} - {super.getCount()}</button>;
+                }
+            }
+            // -----------------------------------------------------------
+            class Main extends Control{
+                render(){
+                    return (
+                        <div>
+                            <Label content="Results"/>
+                            <br/>
+                            <Button1 content="Inc 5"/>
+                            <Button2 content="Inc 10"/>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<Main/>, document.getElementById("container1"));
+        </script>
+    </body>
+</html>

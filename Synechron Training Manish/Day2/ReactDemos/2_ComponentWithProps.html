@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .check{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container1"></div>
+        <div id="container2"></div>
+        
+        <script src="./public/scripts/react/react.js"></script>
+        <script src="./public/scripts/react/react-dom.js"></script>
+        <script src="./public/scripts/babel/browser.js"></script>
+        <script type="text/babel">
+            class Hello extends React.Component{
+                render(){
+                    return <h1 className="check">Hello, {this.props.name}</h1>;
+                }
+            }
+
+            ReactDOM.render(<Hello name="Manish"/>, document.getElementById("container1"));
+            
+            let nm = "Abhijeet";
+            ReactDOM.render(<Hello name={nm}/>, document.getElementById("container2"));
+        </script>
+    </body>
+</html>

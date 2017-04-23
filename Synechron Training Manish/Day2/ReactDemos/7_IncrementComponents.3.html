@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="container1"></div>
+        
+        <script src="./public/scripts/react/react.js"></script>
+        <script src="./public/scripts/react/react-dom.js"></script>
+        <script src="./public/scripts/babel/browser.js"></script>
+        <script type="text/babel">
+            class Result extends React.Component
+            {
+                render(){
+                    return <h2>Result: {this.props.rCount}</h2>
+                }
+            }
+            // --------------------------------------------------
+            class Button extends React.Component{
+                localClick(){
+                    this.props.funcHandleIncrement(this.props.bCaption);
+                }
+
+                render(){
+                    return <button onClick={this.localClick.bind(this)}>Inc {this.props.bCaption}</button>;
+                }
+            }
+            // --------------------------------------------------
+            class Main extends React.Component{
+                constructor(){
+                    super();
+                    this.state = { count:0 };
+                }
+
+                changeCounter(by){
+                    this.setState({count:this.state.count + by});
+                }
+
+                render(){
+                    return (
+                        <div>
+                            <Result rCount={this.state.count}/>
+                            <Button bCaption={5}  funcHandleIncrement={this.changeCounter.bind(this)}/>
+                            <Button bCaption={10} funcHandleIncrement={this.changeCounter.bind(this)}/>
+                            <Button bCaption={15} funcHandleIncrement={this.changeCounter.bind(this)}/>
+                            <Button bCaption={20} funcHandleIncrement={this.changeCounter.bind(this)}/>
+                        </div>
+                    );
+                }
+            }
+            // --------------------------------------------------
+            ReactDOM.render(<Main/>, document.getElementById("container1"));
+        </script>
+    </body>
+</html>
