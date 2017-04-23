@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="container"></div>
+        
+        <script src="./public/scripts/react/react.js"></script>
+        <script src="./public/scripts/react/react-dom.js"></script>
+        <script src="./public/scripts/babel/browser.js"></script>
+        <script type="text/babel">
+
+            class SubComponent extends React.Component{
+                componentWillMount()
+                {
+                    console.log("Component ---- Will Mount");
+                }
+
+                componentDidMount()
+                {
+                    console.log("Component ---- Did Mount");
+                }
+
+                componentWillReceiveProps(newProps)
+                {
+                    console.info("Component ---- Will Recieve Props:", newProps.value);
+                }
+
+                shouldComponentUpdate(newProps, newState)
+                {
+                    console.info("Component ---- Should Component Update:", newProps.value,newState) ;
+                    return true;
+                    //return false;
+                }
+
+                componentWillUpdate(newProps,newState)
+                {
+                    console.info("Component ---- Will Update", newProps.value,newState);
+                }
+
+                componentDidUpdate(prevProps,prevState)
+                {
+                    console.info("Component ---- Did Update", prevProps.value,prevState);
+                }
+
+                componentWillUnmount(){
+                    console.error("Component ---- Will Unmount");
+                }
+
+                render()
+                {
+                    return (
+                        <div>
+                            <h3>{this.props.value}</h3>
+                        </div>
+                    );
+                }
+            }
+
+            class Main extends React.Component{
+                constructor(){
+                    super();
+                    this.state = { data: 0 };
+                    console.log("Component ---- Constructor");
+                }
+                
+                change(){
+                    this.setState({data: this.state.data+1});
+                }
+
+                render(){
+                    console.log("Component ---- Render");
+                    return (
+                        <div>
+                            <button onClick={this.change.bind(this)}>Change</button>
+                            <SubComponent value={this.state.data}></SubComponent>
+                        </div>
+                    );
+                }
+            }          
+            
+
+            ReactDOM.render(<Main />, document.getElementById("container"));
+          
+              setTimeout(function(){
+                ReactDOM.unmountComponentAtNode(document.getElementById("container"));
+            },5000);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "jitsuapp",
+  "description": "A simple zero-configuration command-line http server",
+  "main": "./lib/http-server",
+  "authors": [
+    "Arun"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "command"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/scripts",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.4.2",
+    "babel": "^5.8.38"
+  }
+}

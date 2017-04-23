@@ -1,0 +1,27 @@
+{
+  "name": "myapp",
+  "description": "A simple zero-configuration command-line http server",
+  "main": "./lib/http-server",
+  "authors": [
+    "Manish"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "command"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/scripts",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.4.2",
+    "babel": "^5.8.38"
+  }
+}

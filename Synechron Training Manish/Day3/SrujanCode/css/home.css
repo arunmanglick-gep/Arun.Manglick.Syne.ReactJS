@@ -1,0 +1,23 @@
+.header {
+    width: 30%;
+    border: 1px solid;
+    height: 40px;
+    background-color: lightblue;
+    font-size: 20px;
+    text-align: left;
+}
+
+.childComponent {
+    width: 30%;    
+    height: 40px;
+    text-align: left;
+    font-size: 20px;
+    background: lightyellow;
+    border: 1px solid;
+}
+
+.addButton{
+    font-size: 15px;
+    background-color: green;
+    margin-left: 40px;
+}

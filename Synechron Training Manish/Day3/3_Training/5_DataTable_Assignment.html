@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./public/scripts/bootstrap/dist/css/bootstrap.css">
+    </head>
+    <body>
+        <div id="container"></div>
+        
+        <script src="./public/scripts/react/react.js"></script>
+        <script src="./public/scripts/react/react-dom.js"></script>
+        <script src="./public/scripts/babel/browser.js"></script>
+        <script src="./public/scripts/jquery/dist/jquery.js"></script>
+
+        <script type="text/babel">
+            class Th extends React.Component{
+                render(){
+                    var thArr = new Array();
+                    for(var key in this.props.item){
+                        thArr.push(key);
+                    }
+
+                    var ths = thArr.map(function(item,index){
+                        return <th key={index}>{item.toUpperCase()}</th>;
+                    });
+
+                    return <tr>{ths}</tr>;
+                }
+            }
+
+            class Td extends React.Component{
+                render(){
+                    return <td>{this.props.data}</td>;
+                }
+            }
+
+            class Tr extends React.Component{
+                render(){
+                    var tds = new Array();
+                    var item = this.props.item;
+                    for(var key in item){
+                        var d = item[key];
+                        tds.push(<Td key={key} data={d}/>);
+                    }
+                    return <tr>{tds}</tr>
+                }
+            }
+
+            class TBody extends React.Component{
+                render(){
+                    var trs = this.props.items.map(function(item,index){
+                        return <Tr key={index} item={item}/>
+                    });
+                    return <tbody>{trs}</tbody>;
+                }
+            }
+            
+            class DataTable extends React.Component{
+                render(){
+                    var item = this.props.items[0];
+                    var ths = <Th item={item}/>;
+                    var tbody = <TBody items={this.props.items}/>;
+                    return (
+                        <table className="table">
+                            <thead>
+                                {ths}
+                            </thead>
+                            {tbody}
+                        </table>
+                    );
+                }
+            }
+
+            $(document).ready(function(){
+                var url = "http://jsonplaceholder.typicode.com/posts";
+
+                $.getJSON(url).done(function(data){
+                    ReactDOM.render(<DataTable items={data}/>, document.getElementById("container"));
+                })
+            });
+        </script>
+    </body>
+</html>

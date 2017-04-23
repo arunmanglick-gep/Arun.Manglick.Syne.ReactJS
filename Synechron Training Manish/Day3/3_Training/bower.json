@@ -1,0 +1,26 @@
+{
+  "name": "reactdemos",
+  "description": "Just for learning React",
+  "main": "",
+  "authors": [
+    "Manish"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/scripts",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.4.2",
+    "babel": "^5.8.38",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {}
+}
