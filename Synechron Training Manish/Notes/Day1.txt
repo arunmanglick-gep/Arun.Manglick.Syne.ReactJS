@@ -1,0 +1,40 @@
+Framework
+ - Cannot be used with exiting Code	
+ - Group of API's, target the whole App
+ - Built in Services 
+ - Rigid
+
+Library
+ - Can be used with exiting Code
+ - Set of API's to target a specific part of App
+ - No Built in Services
+ - Flexible
+
+
+MVC		ASP .Net MVC / SPRING MVC / ANGULAR 1.x
+FLUX (REDUX)
+
+After Node JS Installation
+Updating NPM
+npm install -g npm
+
+Validate
+node -v
+npm -v
+bower -v
+Check GIT Bash is installed
+
+bower install <packageName> --save
+bower install --save <packageName>
+
+Visual Studio Code Extentions
+HTML Snippets
+AutoFileName
+View In Browser
+
+bower install babel --save
+
+
+
+
+

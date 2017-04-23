@@ -1,0 +1,118 @@
+Prop Types
+
+React.PropTypes.string
+React.PropTypes.number
+React.PropTypes.bool
+React.PropTypes.any
+React.PropTypes.array
+React.PropTypes.object
+React.PropTypes.symbol
+React.PropTypes.func
+React.PropTypes.element (React Element)
+React.PropTypes.node
+React.PropTypes.instanceOf(<Type>)
+React.PropTypes.shape  
+	{
+		fColor:React.PropTypes.string,
+		bColor:React.PropTypes.string
+	}
+
+
+React.PropTypes.any.isRequired
+
+---------------------Access React using http------------------------
+npm install jitsu -g
+npm install http-server -g
+
+jitsu install http-server
+cd http-server
+npm start  (Start jitsu Server & Keep this running)
+Browse: http://localhost:8080/  (You'll see html content is loaded)
+
+Add .bowerc file and add content.
+bower init
+bower install react --save
+bower install babel --save
+add folder src (under public/scripts)
+add main.js under src folder and write ReactJS Code
+Modify index.html to include four script tags to add React/React-DOM/Babel/Main.JS
+	<script src="./scripts/react/react.js" type="text/javascript"></script>
+    <script src="./scripts/react/react-dom.js" type="text/javascript"></script>
+    <script src="./scripts/babel/browser.js" type="text/javascript"></script>
+    <script src="./scripts/src/main.js" type="text/babel"></script>
+
+npm start  (Start Server if not running)
+Again Browse: http://localhost:8080/  (This time you'll see ReactJS component is loaded)
+
+Note: 
+	- So far main.js is in ES6 & JSX Format. 
+	- And JSX to JS conversion is made at client side in index.html using (script /babel/browser.js)
+	- But client side conversion is not recomended. 
+	- Thus below will guide, how to use Server side conversion from JSX to JS
+
+--------------------- JSX to JS (In ES6) on Server
+
+npm install babel-cli -g
+npm install --save-dev babel-cli babel-preset-react
+babel --presets react public/scripts/src/main.js -o public/scripts/src/distES6.js
+
+Goto: index.html
+Comment below two script tags: 
+	<script src="./scripts/babel/browser.js" type="text/javascript"></script>
+    <script src="./scripts/src/main.js" type="text/babel"></script>
+Add new script tag to refer distES6.js
+	<script src="./scripts/src/distES6.js.js" type="text/javascript"></script>
+
+npm start  (Start Server if not running)
+Again Browse: http://localhost:8080/ 	
+
+---------------------------------- JSX to JS (But in ES5) on Server
+
+(Avoid if already installed) npm install babel-cli -g
+(Avoid if already installed) npm install --save-dev babel-cli babel-preset-react
+npm install --save-dev babel-preset-es2015
+
+babel --presets react,es2015 public/scripts/src/main.js -o public/scripts/src/distES5.js
+
+Goto: index.html
+Comment below two script tags: 
+	<script src="./scripts/babel/browser.js" type="text/javascript"></script>
+    <script src="./scripts/src/main.js" type="text/babel"></script>
+Add new script tag to refer distES5.js
+	<script src="./scripts/src/distES5.js.js" type="text/javascript"></script>
+
+npm start  (Start Server if not running)
+Again Browse: http://localhost:8080/ 	
+
+-------------------------------- Webpack
+Refernce: https://webpack.github.io/docs/tutorials/getting-started/
+
+npm install babel -g
+npm install babel-cli -g
+npm install touch -g
+
+npm install webpack --save
+npm install webpack-dev-server --save
+
+npm install react --save
+npm install react-dom --save
+
+npm install --save-dev babel-core 
+npm install --save-dev babel-loader
+npm install --save-dev babel-preset-react 
+npm install --save-dev babel-preset-es2015
+
+Start Server: npm start
+Browse: http://localhost:8080/ 	
+-----------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

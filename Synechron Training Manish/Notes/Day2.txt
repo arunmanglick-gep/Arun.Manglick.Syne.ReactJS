@@ -1,0 +1,46 @@
+Component Lifecycle
+------------------------
+
+Mounting
+	constructor()
+	componentWillMount()
+	render() 		- required
+	componentDidMount()
+
+Updating
+	componentWillRecieveProps()
+	shouldComponentUpdate()
+	componentWillUpdate()
+	render()
+	componentDidUpdate()	
+
+Unmounting
+	componentWillUnmount()
+
+
+API's for React Component
+------------------------------
+Instance Properties
+	props	(this.props.<pname>)
+	state	(this.state.<sname>)
+
+Class Properties
+	defaultProps
+	displayName
+	PropTypes
+
+Methods
+	setState()
+	forceUpdate()
+
+
+
+
+
+
+
+
+
+
+
+
